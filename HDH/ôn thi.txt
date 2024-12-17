@@ -1,0 +1,17 @@
+-software dùng code
+hardware dùng phần cứng
+busywaiting dùng vòng lặp while
+sleep wakeup dùng if sleep/block
+cấm ngắt ko dùng trên đa vi xử lí
+
+petterson đáp ứng 3 đk, 2 tiến trình
+
+
+RAG : gồm tài nguyên và tiến trình
+wait for graph: là RAG nhưng ko có tài nguyên
+1.so sánh available với need
+2.chọn pi
+3.cập nhập available
+
+
+mục tiêu quản lý bộ nhớ: tăng mức độ đa chương
