@@ -1,0 +1,44 @@
+--9. Tìm người tham gia (MANTG, TENNTG) từng tham gia tất cả các sự kiện ra mắt sách của nhà xuất bản “Tre” với vai trò “khach moi” (1đ).
+SELECT MANTG, TENNTG
+FROM NGTHAMGIA NGTG
+WHERE NOT EXISTS (SELECT *
+		FROM SUKIEN SK, SACH S
+		WHERE SK.MASACH = S.MASACH AND S.NHAXB='Tre' 
+		AND NOT EXISTS(SELECT *
+				FROM THAMGIA TG
+ 				WHERE NGTG.MANGTH=TG.MANGTG AND TG.MASK = SK.MASK AND SK.MASACH = S.MASACH AND TG.VAITRO='khach moi'))
+
+
+--8. Tìm sự kiện (MASK, DIADIEM) có số lượng học sinh tham gia nhiều nhất của từng đơn vị tổ chức (1đ).
+SELECT MASK, DIADIEM
+FROM SUKIEN SK
+WHERE MADV IN(SELECT TOP 1 WITH TIES SK2.MADV
+		FROM SUKIEN SK2, NGTHAMGIA NGTG, THAMGIA TG
+		WHERE SK.MASK=SK2.MASK AND SK2.MASK = TG.MASK AND NGTG.MANTG=TG.MANTG AND NGTG.NGHENGHIEP='Sinh vien'
+		GROUP BY SK2.MADV
+		ORDER BY COUNT(NGTG.MANGTG) DESC))
+
+--7. Thống kê độ tuổi trung bình của người tham gia theo từng nhóm nghề nghiệp của mỗi sự kiện (1đ)
+SELECT NGHENGHIEP, SUKIEN, AVG(DATEDIFF(YEAR,SK.TGBD,NGTG.NGSINH))
+FROM 
+WHERE
+
+--4. Hiện thực ràng buộc toàn vẹn sau: chỉ người có tham gia sự kiện và tham gia với vai trò là “khach tham gia” mới được đánh giá sự kiện (1.5đ).
+CREATE TRIGGER CAU4 ON DANHGIA
+FOR INSERTE, UPDATE
+AS
+BEGIN
+	IF EXISTS(SELECT * 
+		FROM INSERTED I, THAMGIA TG,
+		WHERE I.MANTG = TG.MANTG AND I.MASK=TG.MASK AND TG.VAITRO='khach tham gia')
+	BEGIN
+		RAISERROR('LOI',16,1)
+		ROLLBACK TRANSACTION
+	END
+END
+
+--3. Hiện thực ràng buộc toàn vẹn sau: các sự kiện ra mắt sách được tổ chức ở các trường đại học ở Tp.Hồ Chí Minh (có “Dai hoc” và “TP.HCM” trong địa điểm tổ chức) đều có số lượng dự kiến không vượt quá 300 người (1đ)
+ALTER TABLE SUKIEN ADD
+CONSTRAINT CK_SLDK
+CHECK (NOT(DIADIEM like '%Dai hoc%' ANDDIADIEM like '%TP.HCM%') OR SLDK <= 300 )
+GO

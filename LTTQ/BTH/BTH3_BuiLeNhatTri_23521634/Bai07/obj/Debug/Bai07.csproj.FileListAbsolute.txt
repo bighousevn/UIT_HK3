@@ -1,0 +1,10 @@
+D:\2.HỌC\LTTQ\BTH3_BuiLeNhatTri_23521634\Bai07\bin\Debug\Bai07.exe.config
+D:\2.HỌC\LTTQ\BTH3_BuiLeNhatTri_23521634\Bai07\bin\Debug\Bai07.exe
+D:\2.HỌC\LTTQ\BTH3_BuiLeNhatTri_23521634\Bai07\bin\Debug\Bai07.pdb
+D:\2.HỌC\LTTQ\BTH3_BuiLeNhatTri_23521634\Bai07\obj\Debug\Bai07.csproj.AssemblyReference.cache
+D:\2.HỌC\LTTQ\BTH3_BuiLeNhatTri_23521634\Bai07\obj\Debug\Bai07.Form1.resources
+D:\2.HỌC\LTTQ\BTH3_BuiLeNhatTri_23521634\Bai07\obj\Debug\Bai07.Properties.Resources.resources
+D:\2.HỌC\LTTQ\BTH3_BuiLeNhatTri_23521634\Bai07\obj\Debug\Bai07.csproj.GenerateResource.cache
+D:\2.HỌC\LTTQ\BTH3_BuiLeNhatTri_23521634\Bai07\obj\Debug\Bai07.csproj.CoreCompileInputs.cache
+D:\2.HỌC\LTTQ\BTH3_BuiLeNhatTri_23521634\Bai07\obj\Debug\Bai07.exe
+D:\2.HỌC\LTTQ\BTH3_BuiLeNhatTri_23521634\Bai07\obj\Debug\Bai07.pdb
