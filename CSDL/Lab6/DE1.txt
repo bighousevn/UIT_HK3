@@ -336,6 +336,7 @@ SELECT LOAIVN, PHGTHUC, MAX(DATEDIFF(MONTH, NGBD, NGXUATDK))
 FROM GIONGVN G, DOTCN D
 WHERE G.MAGIONG = D.MAGIONG
 GROUP BY LOAIVN, PHGTHUC
+
 ---8. Với từng loại vật nuôi tìm giống vật nuôi (MAGIONG) từng được chăn nuôi với tổng số lượng nuôi thực tế nhiều nhất năm 2024 (1đ).
 SELECT G1.MAGIONG, LOAIVN
 FROM GIONGVN G1
@@ -344,6 +345,7 @@ WHERE G1.MAGIONG IN (SELECT TOP 1 WITH TIES G2.MAGIONG
 					 WHERE G2.MAGIONG = D.MAGIONG AND G2.LOAIVN = G1.LOAIVN AND YEAR(NGBD) = 2024
 					 GROUP BY G2.MAGIONG
 					 ORDER BY SUM(SLVN) DESC)
+
 ---9. Tìm cơ sở chăn nuôi (MACS, TENCS) đã từng chăn nuôi tất cả các giống của loại vật nuôi “Heo” với số lượng chăn nuôi thực tế từ 20 vật nuôi trở lên (1đ).
 SELECT MACS, TENCS
 FROM CSCHANNUOI CSCN
